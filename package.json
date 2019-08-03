@@ -1,0 +1,17 @@
+{
+  "name": "tapocheck",
+  "version": "0.0.1",
+  "description": "ToDo / Checklist with checking by tap. Android App",
+  "main": "index.js",
+  "repository": "https://github.com/Melodyn/tapocheck",
+  "author": "Melodyn <samelodyn@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "engines": {
+    "node": ">=12.7.0",
+    "yarn": ">=1.7.3"
+  },
+  "dependencies": {
+    "react-native-cli": "^2.0.1"
+  }
+}
