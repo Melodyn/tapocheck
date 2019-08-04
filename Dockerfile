@@ -17,7 +17,8 @@ RUN apt-get update && \
 # Install NodeJS
 RUN mkdir -p /usr/local/lib/nodejs && \
     curl https://nodejs.org/dist/v${NODE_V}/node-v${NODE_V}-${NODE_DISTR}.tar.xz --output node.tar.xz && \
-    tar -xJvf node.tar.xz -C /usr/local/lib/nodejs
+    tar -xJvf node.tar.xz -C /usr/local/lib/nodejs && \
+    rm -rf ./node.tar.xz
 ENV PATH="/usr/local/lib/nodejs/node-${NODE_V}-${NODE_DISTR}/bin:${PATH}"
 RUN ln -s /usr/local/lib/nodejs/node-v${NODE_V}-${NODE_DISTR}/bin/node /usr/bin/node && \
     ln -s /usr/local/lib/nodejs/node-v${NODE_V}-${NODE_DISTR}/bin/npm /usr/bin/npm && \
