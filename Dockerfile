@@ -23,15 +23,15 @@ ENV PATH="/usr/local/lib/nodejs/node-${NODE_V}-${NODE_DISTR}/bin:${PATH}"
 RUN ln -s /usr/local/lib/nodejs/node-v${NODE_V}-${NODE_DISTR}/bin/node /usr/bin/node && \
     ln -s /usr/local/lib/nodejs/node-v${NODE_V}-${NODE_DISTR}/bin/npm /usr/bin/npm && \
     ln -s /usr/local/lib/nodejs/node-v${NODE_V}-${NODE_DISTR}/bin/npx /usr/bin/npx
-## js, ёбтвоюмать, ну почему с тобой всё так сложно и неочевидно?!
+## js, ёбтвоюмать, ну почему с тобой всё так сложно?!
 
 # Install React Native
 RUN npm install --global react-native-cli && \
     ln -s /usr/local/lib/nodejs/node-v${NODE_V}-${NODE_DISTR}/bin/react-native /usr/bin/react-native
 
 # Install OpenJDK
-RUN apt-get install -y openjdk-11-jdk
+RUN apt-get install -y openjdk-8-jdk
 
 # Install Android SDK
-# ...
-RUN apt-get install -y android-tools-adb
+ENV ANDROID_HOME=${WORKDIR}/Android/Sdk
+ENV PATH=${ANDROID_HOME}/emulator:${ANDROID_HOME}/tools:${ANDROID_HOME}/tools/bin:${ANDROID_HOME}/platform-tools:${PATH}
